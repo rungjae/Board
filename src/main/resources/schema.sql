@@ -1,20 +1,22 @@
-drop table BOARD;
-drop sequence BOARD_SEQ;
-purge recyclebin;
-
-create table BOARD(
-    SEQ number constraint BOARD_PK primary key,
-    WRITER varchar2(12),
-    EMAIL varchar2(20),
-    SUBJECT varchar2(20),
-    CONTENT varchar2(20),
-    RDATE date default SYSDATE
+CREATE TABLE users(
+                      seq bigint NOT NULL AUTO_INCREMENT,
+                      email varchar(50) NOT NULL,
+                      passwd varchar(80) NOT NULL,
+                      login_count int NOT NULL DEFAULT 0,
+                      last_login_at datetime DEFAULT NULL,
+                      create_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+                      PRIMARY KEY (seq),
+                      CONSTRAINT unq_user_email UNIQUE(email)
 );
-create sequence BOARD_SEQ increment by 1 start with 1 nocache;
 
-insert into BOARD values(BOARD_SEQ.nextval, '김민경', 'kmj@hanmail.net','제목1', '내용1', SYSDATE);
-insert into BOARD values(BOARD_SEQ.nextval, '김수환', 'ksh@hanmail.net','제목2', '내용2', SYSDATE);
-insert into BOARD values(BOARD_SEQ.nextval, '김지수', 'kjs@hanmail.net','제목3', '내용3', SYSDATE);
-insert into BOARD values(BOARD_SEQ.nextval, '김지협', 'kjh@hanmail.net','제목4', '내용4', SYSDATE);
+CREATE TABLE TEST(
+                     ID INT PRIMARY KEY,
+                     NAME VARCHAR(255)
+);
 
-commit;
+INSERT INTO users(email, passwd, login_count, last_login_at, create_at) VALUES ('liu.g@aa.com','1234',0,now(),now() );
+INSERT INTO users(email, passwd, login_count, last_login_at, create_at) VALUES ('ssss.z@aa.com','1111',0,now(),now() );
+INSERT INTO users(email, passwd, login_count, last_login_at, create_at) VALUES ('asd.k@aa.com','1755',0,now(),now() );
+INSERT INTO users(email, passwd, login_count, last_login_at, create_at) VALUES ('bbdd.q@aa.com','37868',0,now(),now() );
+INSERT INTO users(email, passwd, login_count, last_login_at, create_at) VALUES ('bdsscv.s@aa.com','3253255',0,now(),now() );
+INSERT INTO users(email, passwd, login_count, last_login_at, create_at) VALUES ('fefs.n@aa.com','080088',0,now(),now() );

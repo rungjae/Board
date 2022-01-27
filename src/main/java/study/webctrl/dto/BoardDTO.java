@@ -3,13 +3,14 @@ package study.webctrl.dto;
 import lombok.Getter;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 @Getter
 public class BoardDTO {
-    private int seq;
-    private String writer;
+    private Long seq;
     private String email;
-    private String subject;
-    private String content;
-    private Date rdate;
+    private String passwd;
+    private int login_count;
+    private LocalDateTime last_login_at;
+    private LocalDateTime create_at;
 }
