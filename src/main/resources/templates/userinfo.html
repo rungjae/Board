@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS userInfo</title>
+</head>
+<body style="text-align: center">
+    <h2>JS select with Spring</h2>
+    <table border='1' width='600' align='center' cellpadding='2'>
+        <tr>
+            <th align='center' width='10%'>번호</th>
+            <th align='center' width='20%'>email</th>
+            <th align='center' width='20%'>비밀번호</th>
+            <th align='center' width='25%'>마지막접속일</th>
+            <th align='center' width='25%'>생성일자</th>
+        </tr>
+        <tr height='70'>
+            <td align='center' th:text="${seq}"></td>
+            <td align='center' th:text="${email}"></td>
+            <td align='center' th:text="${passwd}"></td>
+            <td align='center' th:text="${last_login_at}"></td>
+            <td align='center' th:text="${create_at}"></td>
+        </tr>
+    </table>
+</body>
+</html>

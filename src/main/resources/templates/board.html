@@ -6,7 +6,24 @@
     <meta charset="UTF-8">
     <title>JS Board</title>
 </head>
-<body>
-    <h2 style="text-align: center">JS Board with Spring</h2>
+<body style="text-align: center">
+    <h2>JS select with Spring</h2>
+    <form name="frm" action="/userinfo_seq" method="post">
+        <span>고유 번호:</span>
+        <input type="text" placeholder="번호를 입력해주세요" name="seq">
+        <button name="btn" type="submit">조회하기</button>
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <form name="frm" action="/userinfo_email" method="post">
+        <span>Email:</span>
+        <input type="text" placeholder="Email을 입력해주세요" name="seq">
+        <button name="btn" type="submit">조회하기</button>
+    </form>
+
 </body>
 </html>

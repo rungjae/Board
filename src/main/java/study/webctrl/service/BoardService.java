@@ -13,9 +13,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BoardService {
     private final UserMapper userMapper;
-    public List<BoardDTO> findAllUser(){
-        return userMapper.findAll();
-    }
+//    public List<BoardDTO> allUserList(){
+//        return userMapper.findAll();
+//    }
     public BoardDTO findUser(Long seq) {
         return userMapper.findById(seq);
     }
