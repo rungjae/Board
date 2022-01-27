@@ -3,12 +3,12 @@ drop sequence BOARD_SEQ;
 purge recyclebin;
 
 create table BOARD(
-                      SEQ number constraint BOARD_PK primary key,
-                      WRITER varchar2(12),
-                      EMAIL varchar2(20),
-                      SUBJECT varchar2(20),
-                      CONTENT varchar2(20),
-                      RDATE date default SYSDATE
+    SEQ number constraint BOARD_PK primary key,
+    WRITER varchar2(12),
+    EMAIL varchar2(20),
+    SUBJECT varchar2(20),
+    CONTENT varchar2(20),
+    RDATE date default SYSDATE
 );
 create sequence BOARD_SEQ increment by 1 start with 1 nocache;
 
