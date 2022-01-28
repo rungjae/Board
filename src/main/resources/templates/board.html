@@ -6,10 +6,11 @@
     <meta charset="UTF-8">
     <title>JS Board</title>
 </head>
-<body style="text-align: center">
+<body>
+<div style="text-align: center">
     <h2>JS select with Spring</h2>
     <form name="frm" action="/userinfo_seq" method="post">
-        <span>고유 번호:</span>
+        <span>고유 번호 조회:</span>
         <input type="text" placeholder="번호를 입력해주세요" name="seq">
         <button name="btn" type="submit">조회하기</button>
     </form>
@@ -20,10 +21,24 @@
     <br>
     <br>
     <form name="frm" action="/userinfo_email" method="post">
-        <span>Email:</span>
-        <input type="text" placeholder="Email을 입력해주세요" name="seq">
+        <span>Email 조회:</span>
+        <input type="text" placeholder="Email을 입력해주세요" name="email">
         <button name="btn" type="submit">조회하기</button>
     </form>
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+    <form name="frm" action="/userinfo_insert" method="post" style="text-align: center">
+        <div style="text-align: center">회원 추가</div>
+        <span>Email입력:</span>
+        <input type="text" placeholder="Email을 입력해주세요" name="email" required><br>
+        <span>Password입력:</span>
+        <input type="text" placeholder="비밀번호를 입력해주세요" name="passwd" required><br>
+        <button name="btn" type="submit">추가하기</button>
+    </form>
 </body>
 </html>

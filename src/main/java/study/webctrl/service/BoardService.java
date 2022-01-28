@@ -13,10 +13,19 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BoardService {
     private final UserMapper userMapper;
-//    public List<BoardDTO> allUserList(){
+
+    //    public List<BoardDTO> allUserList(){
 //        return userMapper.findAll();
 //    }
     public BoardDTO findUser(Long seq) {
         return userMapper.findById(seq);
+    }
+
+    public List<BoardDTO> findEmail(String email) {
+        return userMapper.findMail(email);
+    }
+
+    public BoardDTO addUser(String email, String passwd) {
+        return userMapper.addUsers(email, passwd);
     }
 }

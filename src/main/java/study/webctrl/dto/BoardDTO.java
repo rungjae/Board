@@ -2,7 +2,6 @@ package study.webctrl.dto;
 
 import lombok.Getter;
 
-import java.sql.Date;
 import java.time.LocalDateTime;
 
 @Getter
