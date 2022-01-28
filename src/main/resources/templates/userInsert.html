@@ -6,23 +6,28 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-<h2>추가된 정보</h2>
+<body style="text-align: center">
+<h2>아래의 정보로 리스트에 추가되었습니다.</h2>
 <table border='1' width='600' align='center' cellpadding='2'>
     <tr>
-        <th align='center' width='10%'>번호</th>
-        <th align='center' width='20%'>email</th>
-        <th align='center' width='20%'>비밀번호</th>
-        <th align='center' width='25%'>마지막접속일</th>
-        <th align='center' width='25%'>생성일자</th>
+<!--        <th style="text-align: center" width='10%'>번호</th>-->
+        <th style="text-align: center" width='20%'>email</th>
+        <th style="text-align: center" width='20%'>비밀번호</th>
+<!--        <th style="text-align: center" width='25%'>마지막접속일</th>-->
+<!--        <th style="text-align: center" width='25%'>생성일자</th>-->
     </tr>
     <tr height='70'>
-        <td align='center' th:text="${seq}"></td>
-        <td align='center' th:text="${email}"></td>
-        <td align='center' th:text="${passwd}"></td>
-        <td align='center' th:text="${last_login_at}"></td>
-        <td align='center' th:text="${create_at}"></td>
+<!--        <td style="text-align: center" th:text="${seq}"></td>-->
+        <td style="text-align: center" th:text="${email}"></td>
+        <td style="text-align: center" th:text="${passwd}"></td>
+<!--        <td style="text-align: center" th:text="${last_login_at}"></td>-->
+<!--        <td style="text-align: center" th:text="${create_at}"></td>-->
     </tr>
 </table>
+<br>
+<div>
+    <button name="btn" type="submit" onclick="history.back()">뒤로가기</button>
+    <button name="btn" type="submit" onclick="location.href='/jsboard'">처음으로가기</button>
+</div>
 </body>
 </html>

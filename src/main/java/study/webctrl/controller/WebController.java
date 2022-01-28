@@ -92,21 +92,23 @@ public class WebController {
         mv.setViewName("emailinfo.html");
         return mv;
     }
-    //매핑오류..
+
     @RequestMapping(value = "/userinfo_insert", method = RequestMethod.POST)
-    public ModelAndView addUser(HttpServletRequest httpServletRequest) {
+    public ModelAndView addUser(HttpServletRequest httpServletRequest, BoardDTO dto) {
+        boardService.addUser(dto);
         ModelAndView mv = new ModelAndView();
-        String email = httpServletRequest.getParameter("email");
-        String passwd = httpServletRequest.getParameter("passwd");
-        BoardDTO dto = boardService.addUser(email, passwd);
+        dto.setEmail(httpServletRequest.getParameter("email"));
+        dto.setPasswd(httpServletRequest.getParameter("passwd"));
         mv.addObject("seq", dto.getSeq());
-        mv.addObject("email", email);
-        mv.addObject("passwd", passwd);
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy년 M월 d일 a h시 m분");
-        String last_login_at = dto.getLast_login_at().format(dateTimeFormatter);
-        String create_at = dto.getCreate_at().format(dateTimeFormatter);
-        mv.addObject("last_login_at", last_login_at);
-        mv.addObject("create_at", create_at);
+        mv.addObject("email", dto.getEmail());
+        mv.addObject("passwd", dto.getPasswd());
+
+//        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy년 M월 d일 a h시 m분");
+//        String last_login_at = dto.getLast_login_at().format(dateTimeFormatter);
+//        String create_at = dto.getCreate_at().format(dateTimeFormatter);
+//
+//        mv.addObject("last_login_at", last_login_at);
+//        mv.addObject("create_at", create_at);
         mv.setViewName("userInsert.html");
         return mv;
     }

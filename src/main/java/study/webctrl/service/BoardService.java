@@ -25,7 +25,8 @@ public class BoardService {
         return userMapper.findMail(email);
     }
 
-    public BoardDTO addUser(String email, String passwd) {
-        return userMapper.addUsers(email, passwd);
+    public void addUser(BoardDTO dto) {
+        userMapper.addUsers(dto);
+        userMapper.findByEmail(dto.getEmail());
     }
 }

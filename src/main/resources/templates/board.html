@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="ko"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" xmlns:border="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>JS Board</title>
 </head>
-<body>
-<div style="text-align: center">
+<style>
+    body {
+        width: 480px;
+        margin: 0 auto;
+    }
+</style>
+<body style="text-align: center">
+<div style="text-align: center; border:1px solid black; width: 500px">
     <h2>JS select with Spring</h2>
+    <br>
+    <br>
     <form name="frm" action="/userinfo_seq" method="post">
         <span>고유 번호 조회:</span>
         <input type="text" placeholder="번호를 입력해주세요" name="seq">
         <button name="btn" type="submit">조회하기</button>
     </form>
-    <br>
-    <br>
-    <br>
     <br>
     <br>
     <br>
@@ -32,13 +37,20 @@
     <br>
     <br>
 </div>
-    <form name="frm" action="/userinfo_insert" method="post" style="text-align: center">
+    <br>
+    <form name="frm" action="/userinfo_insert" method="post" style="text-align: center; border:1px solid black; width: 500px">
         <div style="text-align: center">회원 추가</div>
         <span>Email입력:</span>
         <input type="text" placeholder="Email을 입력해주세요" name="email" required><br>
         <span>Password입력:</span>
         <input type="text" placeholder="비밀번호를 입력해주세요" name="passwd" required><br>
         <button name="btn" type="submit">추가하기</button>
+        <br>
     </form>
+<br>
+<div>
+    <button name="btn" type="submit" onclick="history.back()">뒤로가기</button>
+    <button name="btn" type="submit" onclick="location.href='/jsboard'">처음으로가기</button>
+</div>
 </body>
 </html>
