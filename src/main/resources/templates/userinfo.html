@@ -6,6 +6,12 @@
     <meta charset="UTF-8">
     <title>JS userInfo</title>
 </head>
+<style>
+    body {
+        width: 600px;
+        margin: 0 auto;
+    }
+</style>
 <body style="text-align: center">
     <h2>JS select with Spring</h2>
     <table border='1' width='600' style="text-align: center" cellpadding='2'>
@@ -24,5 +30,9 @@
             <td style="text-align: center" th:text="${create_at}"></td>
         </tr>
     </table>
+    <div>
+        <button name="btn" type="submit" onclick="history.back()">뒤로가기</button>
+        <button name="btn" type="submit" onclick="location.href='/jsboard'">처음으로가기</button>
+    </div>
 </body>
 </html>

@@ -14,9 +14,10 @@ import java.util.List;
 public class BoardService {
     private final UserMapper userMapper;
 
-    //    public List<BoardDTO> allUserList(){
-//        return userMapper.findAll();
-//    }
+    public List<BoardDTO> allUserList() {
+        return userMapper.findAll();
+    }
+
     public BoardDTO findUser(Long seq) {
         return userMapper.findById(seq);
     }

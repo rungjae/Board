@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>JS User list</title>
+</head>
+<style>
+    body {
+        width: 600px;
+        margin: 0 auto;
+    }
+</style>
+<body style="text-align: center">
+<h2>JS select with Spring</h2><br>
+<h2>All User list</h2>
+<table border='1' width='600' style="text-align: center" cellpadding='2'>
+    <tr>
+        <th style="text-align: center" width='10%'>번호</th>
+        <th style="text-align: center" width='20%'>email</th>
+        <th style="text-align: center" width='20%'>비밀번호</th>
+        <th style="text-align: center" width='25%'>마지막접속일</th>
+        <th style="text-align: center" width='25%'>생성일자</th>
+    </tr>
+    <tr height='70' th:each="list : ${userList}">
+        <td style="text-align: center" th:text="${list.seq}"></td>
+        <td style="text-align: center" th:text="${list.email}"></td>
+        <td style="text-align: center" th:text="${list.passwd}"></td>
+        <td style="text-align: center" th:text="${list.last_login_at}"></td>
+        <td style="text-align: center" th:text="${list.create_at}"></td>
+    </tr>
+</table>
+<div>
+    <button name="btn" type="submit" onclick="history.back()">뒤로가기</button>
+    <button name="btn" type="submit" onclick="location.href='/jsboard'">처음으로가기</button>
+</div>
+</body>
+</html>

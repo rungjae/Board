@@ -37,6 +37,14 @@ public class WebController {
         return mv;
     }
 
+    @RequestMapping(value = "/alluser", method = RequestMethod.POST)
+    public ModelAndView AllUser(ModelAndView mv){
+        log.info("AllUser 실행");
+        mv.addObject("userList", boardService.allUserList());
+        mv.setViewName("userlist.html");
+        return mv;
+    }
+
 //    @RequestMapping(value ="/finduser", method = RequestMethod.POST)
 //    public String samplecontent3(HttpServletRequest httpServletRequest, Model model) {
 //        String seq = httpServletRequest.getParameter("seq");
@@ -82,16 +90,16 @@ public class WebController {
         mv.setViewName("userinfo.html");
         return mv;
     }
-    //리스트 출력 방법이 어려움..
-    @RequestMapping(value = "/userinfo_email", method = RequestMethod.POST)
-    public ModelAndView findEmail(HttpServletRequest httpServletRequest) {
-        String str = httpServletRequest.getParameter("email");
-        ModelAndView mv = new ModelAndView();
-        List<BoardDTO> dto = boardService.findEmail(str);
-
-        mv.setViewName("emailinfo.html");
-        return mv;
-    }
+//    //리스트 출력 방법이 어려움..
+//    @RequestMapping(value = "/userinfo_email", method = RequestMethod.POST)
+//    public ModelAndView findEmail(HttpServletRequest httpServletRequest) {
+//        String str = httpServletRequest.getParameter("email");
+//        ModelAndView mv = new ModelAndView();
+//        List<BoardDTO> dto = boardService.findEmail(str);
+//
+//        mv.setViewName("emailinfo.html");
+//        return mv;
+//    }
 
     @RequestMapping(value = "/userinfo_insert", method = RequestMethod.POST)
     public ModelAndView addUser(HttpServletRequest httpServletRequest, BoardDTO dto) {

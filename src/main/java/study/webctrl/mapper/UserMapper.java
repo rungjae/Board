@@ -18,7 +18,7 @@ public interface UserMapper {
 
     @Select("SELECT * FROM USERS where email = #{email}")
     BoardDTO findByEmail(String email);
-
+    //미완성
     @Select("SELECT * FROM USERS where email = %#{email}%")
     List<BoardDTO> findMail(String email);
 
