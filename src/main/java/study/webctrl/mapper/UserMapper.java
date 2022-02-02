@@ -1,9 +1,7 @@
 package study.webctrl.mapper;
 
-import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.*;
 import study.webctrl.dto.BoardDTO;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -24,4 +22,8 @@ public interface UserMapper {
 
     @Insert("INSERT INTO USERS(email, passwd, login_count, last_login_at, create_at) VALUES (#{email},#{passwd},0,now(),now())")
     void addUsers(BoardDTO dto);
+
+    @Delete("DELETE FROM USERS where seq = #{seq}")
+    void deleteUsers(BoardDTO dto);
+
 }

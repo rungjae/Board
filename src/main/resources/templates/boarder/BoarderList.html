@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+    <script>
+        function register() {
+            window.location.href="/boarder/register";
+        }
+
+        function del(seq) {
+            alert("삭제되었습니다.");
+            document.getElementById("del").action = "/boarder/delete";
+            document.getElementById("del").submit();
+        }
+
+        function update() {
+            window.location.href="/boarder/update";
+        }
+    </script>
+</head>
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/cheatsheet.css" rel="stylesheet">
+<body class="bg-light">
+<div>
+    <div class="bd-example">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">email</th>
+                <th scope="col">비밀번호</th>
+                <th scope="col">마지막접속</th>
+                <th scope="col">생성일자</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="list : ${userList}">
+                <td th:text="${list.seq}"></td>
+                <td th:text="${list.email}"></td>
+                <td th:text="${list.passwd}"></td>
+                <td th:text="${list.last_login_at}"></td>
+                <td th:text="${list.create_at}"></td>
+                <td><button type="button" class="btn btn-primary" onclick="">수정</button></td>
+                <td><button id="del" type="button" class="btn btn-primary" th:onclick="|javascript:del('${list.seq}')|
+">삭제</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <button type="button" class="btn btn-primary" onclick="register()">글쓰기</button>
+</div>
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/js/cheatsheet.js"></script>
+</body>
+</html>

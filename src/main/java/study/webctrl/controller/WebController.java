@@ -3,7 +3,6 @@ package study.webctrl.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,7 +12,6 @@ import study.webctrl.service.BoardService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 
 @Controller
@@ -25,7 +23,7 @@ public class WebController {
     @GetMapping(value = "/jsboard")
     public ModelAndView mainScreen(ModelAndView mv) {
         log.info("mainScreen 실행");
-        mv.setViewName("index.html");
+        mv.setViewName("index1.html");
         return mv;
     }
 
@@ -121,8 +119,12 @@ public class WebController {
         return mv;
     }
 
-
-
+    @GetMapping(value = "/jsindex")
+    public ModelAndView indexRun(ModelAndView mv) {
+        log.info("index 실행");
+        mv.setViewName("index.html");
+        return mv;
+    }
 }
 
 
