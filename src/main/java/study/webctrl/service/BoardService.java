@@ -22,9 +22,9 @@ public class BoardService {
         return userMapper.findById(seq);
     }
 
-    public List<BoardDTO> findEmail(String email) {
-        return userMapper.findMail(email);
-    }
+//    public List<BoardDTO> findEmail(String email) {
+//        return userMapper.findMail(email);
+//    }
 
     public void addUser(BoardDTO dto) {
         userMapper.addUsers(dto);

@@ -12,14 +12,24 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BoarderService {
     private final UserMapper userMapper;
+
+    public BoardDTO findUser(Long seq) {
+        return userMapper.findById(seq);
+    }
+
     public List<BoardDTO> allUserList() {
         return userMapper.findAll();
     }
+
     public void addUser(BoardDTO dto) {
         userMapper.addUsers(dto);
     }
 
-    public void delUser(BoardDTO dto){
-        userMapper.deleteUsers(dto);
+    public void delUser(Long seq){
+        userMapper.deleteUsers(seq);
+    }
+
+    public void updateUser(String email, String passwd, Long seq){
+        userMapper.updateUsers(email, passwd, seq);
     }
 }

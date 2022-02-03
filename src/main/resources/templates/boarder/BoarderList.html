@@ -12,18 +12,28 @@
 
         function del(seq) {
             alert("삭제되었습니다.");
-            document.getElementById("del").action = "/boarder/delete";
-            document.getElementById("del").submit();
+            const reqDeleteUser = document.reqDeleteUser;
+            reqDeleteUser.seq.value = seq;
+            reqDeleteUser.submit();
         }
-
-        function update() {
-            window.location.href="/boarder/update";
+        function update(seq) {
+            const reqUpdateUser = document.reqUpdateUser;
+            reqUpdateUser.seq.value = seq;
+            reqUpdateUser.submit();
         }
     </script>
 </head>
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="/css/cheatsheet.css" rel="stylesheet">
 <body class="bg-light">
+
+<form name="reqUpdateUser" method="post" action="/boarder/update">
+    <input type="hidden" name="seq">
+</form>
+<form name="reqDeleteUser" method="post" action="/boarder/delete">
+    <input type="hidden" name="seq">
+</form>
+
 <div>
     <div class="bd-example">
         <table class="table table-striped">
@@ -43,9 +53,8 @@
                 <td th:text="${list.passwd}"></td>
                 <td th:text="${list.last_login_at}"></td>
                 <td th:text="${list.create_at}"></td>
-                <td><button type="button" class="btn btn-primary" onclick="">수정</button></td>
-                <td><button id="del" type="button" class="btn btn-primary" th:onclick="|javascript:del('${list.seq}')|
-">삭제</button></td>
+                <td><button type="button" class="btn btn-primary" th:onclick="|javascript:update(${list.seq})|">수정</button></td>
+                <td><button id="del" type="button" class="btn btn-primary" th:onclick="|javascript:del(${list.seq})|">삭제</button></td>
             </tr>
             </tbody>
         </table>
