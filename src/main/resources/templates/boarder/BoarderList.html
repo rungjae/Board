@@ -21,18 +21,27 @@
             reqUpdateUser.seq.value = seq;
             reqUpdateUser.submit();
         }
+        // function updatedo(seq) {
+        //     const reqUpdateDo = document.reqUpdateDo;
+        //     reqUpdateDo.seq.value = seq;
+        //     reqUpdateDo.submit();
+        // }
     </script>
 </head>
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="/css/cheatsheet.css" rel="stylesheet">
 <body class="bg-light">
 
+<!--<form name="reqUpdateDo" method="post" action="/boarder/updatedo">-->
+<!--    <input type="hidden" name="seq">-->
+<!--</form>-->
 <form name="reqUpdateUser" method="post" action="/boarder/update">
     <input type="hidden" name="seq">
 </form>
 <form name="reqDeleteUser" method="post" action="/boarder/delete">
     <input type="hidden" name="seq">
 </form>
+
 
 <div>
     <div class="bd-example">

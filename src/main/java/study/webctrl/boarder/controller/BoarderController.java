@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public class BoarderController {
     private final BoarderService boarderService;
+    Long tempSeq;
     @GetMapping(value = "/boarder/list")
     public ModelAndView boarderList(ModelAndView mv) {
         log.info("List실행");
@@ -58,27 +59,21 @@ public class BoarderController {
         log.info("update page 실행");
         BoardDTO dto = boarderService.findUser(seq);
         ModelAndView mv = new ModelAndView();
+        tempSeq = dto.getSeq();
         mv.addObject("emailValue", dto.getEmail());
         mv.addObject("passwdValue", dto.getPasswd());
-        mv.addObject("seq", dto.getSeq());
         mv.setViewName("/boarder/BoarderUpdate.html");
         return mv;
     }
 
     @PostMapping(value = "/boarder/updatedo")
-    public ModelAndView boarderUpdateDo(@RequestParam("emailup")String email, @RequestParam("passwdup")String passwd, BoardDTO dto) {
+    public ModelAndView boarderUpdateDo(@RequestParam("emailup")String email, @RequestParam("passwdup")String passwd, Long seq) {
         log.info("update 실행");
         ModelAndView mv = new ModelAndView();
-//        String email = httpServletRequest.getParameter("email");
         log.info(email);
-//        String passwd = httpServletRequest.getParameter("passwd");
         log.info(passwd);
-//        dto.setEmail(email);
-//        dto.setPasswd(passwd);
-//        mv.addObject("email", email);
-//        mv.addObject("passwd", passwd);
-//        mv.addObject("seq", seq);
-        boarderService.updateUser(email, passwd, dto.getSeq());
+        log.info(String.valueOf(tempSeq));
+        boarderService.updateUser(email, passwd, tempSeq);
         mv.addObject("userList", boarderService.allUserList());
         mv.setViewName("/boarder/BoarderList.html");
         return mv;

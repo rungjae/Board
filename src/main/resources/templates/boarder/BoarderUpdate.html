@@ -6,18 +6,13 @@
     <meta charset="UTF-8">
     <title>Update</title>
     <script>
-        // function updatedo(email, passwd, seq) {
-        //     alert("수정되었습니다.");
-        //     const reqUpdateDo = document.reqUpdateDo;
-        //     reqUpdateDo.email.value = email;
-        //     reqUpdateDo.passwd.value = passwd;
-        //     reqUpdateDo.seq.value = seq;
-        //     reqUpdateDo.submit();
-        // }
-        function updatedo(){
+        function updatedo(seq){
             alert("수정되었습니다.");
             document.getElementById("frm").action = "/boarder/updatedo";
             document.getElementById("frm").submit();
+            // const reqUpdateDo = document.reqUpdateDo;
+            // reqUpdateDo.seq.value = seq;
+            // reqUpdateDo.submit();
         }
     </script>
 </head>
