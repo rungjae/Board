@@ -2,11 +2,9 @@ package study.webctrl.boarder.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import study.webctrl.boarder.service.BoarderService;
 import study.webctrl.dto.BoardDTO;
@@ -60,17 +58,27 @@ public class BoarderController {
         log.info("update page 실행");
         BoardDTO dto = boarderService.findUser(seq);
         ModelAndView mv = new ModelAndView();
-        mv.addObject("email", dto.getEmail());
-        mv.addObject("passwd", dto.getPasswd());
+        mv.addObject("emailValue", dto.getEmail());
+        mv.addObject("passwdValue", dto.getPasswd());
+        mv.addObject("seq", dto.getSeq());
         mv.setViewName("/boarder/BoarderUpdate.html");
         return mv;
     }
 
     @PostMapping(value = "/boarder/updatedo")
-    public ModelAndView boarderUpdateDo(String email, String passwd, Long seq) {
+    public ModelAndView boarderUpdateDo(@RequestParam("emailup")String email, @RequestParam("passwdup")String passwd, BoardDTO dto) {
         log.info("update 실행");
         ModelAndView mv = new ModelAndView();
-        boarderService.updateUser(email,passwd,seq);
+//        String email = httpServletRequest.getParameter("email");
+        log.info(email);
+//        String passwd = httpServletRequest.getParameter("passwd");
+        log.info(passwd);
+//        dto.setEmail(email);
+//        dto.setPasswd(passwd);
+//        mv.addObject("email", email);
+//        mv.addObject("passwd", passwd);
+//        mv.addObject("seq", seq);
+        boarderService.updateUser(email, passwd, dto.getSeq());
         mv.addObject("userList", boarderService.allUserList());
         mv.setViewName("/boarder/BoarderList.html");
         return mv;

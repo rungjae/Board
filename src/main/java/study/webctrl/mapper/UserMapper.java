@@ -16,7 +16,7 @@ public interface UserMapper {
 
     @Select("SELECT * FROM USERS where email = #{email}")
     BoardDTO findByEmail(String email);
-    //미완성
+//미완성
 //    @Select("SELECT * FROM USERS where email = %#{email}%")
 //    List<BoardDTO> findMail(String email);
 
@@ -26,6 +26,6 @@ public interface UserMapper {
     @Delete("DELETE FROM USERS where seq = #{seq}")
     void deleteUsers(Long seq);
 
-    @Update("UPDATE USERS SET email= #{email}, passwd = #{passwd} where #{seq}")
+    @Update("UPDATE USERS SET email= #{email}, passwd = #{passwd} where seq = #{seq}")
     void updateUsers(String email, String passwd, Long seq);
 }

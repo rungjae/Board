@@ -6,24 +6,29 @@
     <meta charset="UTF-8">
     <title>Update</title>
     <script>
-        function updatedo(email, passwd, seq) {
+        // function updatedo(email, passwd, seq) {
+        //     alert("수정되었습니다.");
+        //     const reqUpdateDo = document.reqUpdateDo;
+        //     reqUpdateDo.email.value = email;
+        //     reqUpdateDo.passwd.value = passwd;
+        //     reqUpdateDo.seq.value = seq;
+        //     reqUpdateDo.submit();
+        // }
+        function updatedo(){
             alert("수정되었습니다.");
-            const reqUpdateDo = document.reqUpdateDo;
-            reqUpdateDo.email.value = email;
-            reqUpdateDo.passwd.value = passwd;
-            reqUpdateDo.seq.value = seq;
-            reqUpdateDo.submit();
+            document.getElementById("frm").action = "/boarder/updatedo";
+            document.getElementById("frm").submit();
         }
     </script>
 </head>
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="/css/cheatsheet.css" rel="stylesheet">
 <body>
-<form name="reqUpdateDo" method="post" action="/boarder/updatedo">
-    <input type="hidden" name="email">
-    <input type="hidden" name="passwd">
-    <input type="hidden" name="seq">
-</form>
+<!--<form name="reqUpdateDo" method="post" action="/boarder/updatedo">-->
+<!--    <input type="hidden" name="email">-->
+<!--    <input type="hidden" name="passwd">-->
+<!--    <input type="hidden" name="seq">-->
+<!--</form>-->
 
 <article class="my-3" id="validation">
     <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
@@ -34,20 +39,20 @@
             <form name="frm" id="frm" method="post" class="row g-3">
                 <div class="col-md-4">
                     <label for="validationServer01" class="form-label">Email</label>
-                    <input type="text" name="email" th:value="${email}" class="form-control is-valid" id="validationServer01" placeholder="email을 입력해주세요" required>
+                    <input type="text" name="emailup" th:value="${emailValue}" class="form-control is-valid" id="validationServer01" placeholder="email을 입력해주세요" required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
                     <label for="validationServer02" class="form-label">비밀번호</label>
-                    <input type="text" name="passwd" th:value="${passwd}" class="form-control is-valid" id="validationServer02" placeholder="비밀번호를 입력해주세요" required>
+                    <input type="text" name="passwdup" th:value="${passwdValue}" class="form-control is-valid" id="validationServer02" placeholder="비밀번호를 입력해주세요" required>
                     <div class="valid-feedback">
                         Looks good!
                         <div class="col-md-4">
                     </div>
                 </div>
                 <div class="col-12">
-                    <button class="btn btn-primary" type="button" th:onclick="|javascript:updatedo(email,passwd,seq)|">완료</button>
+                    <button class="btn btn-primary" type="submit" onclick="updatedo()">완료</button>
                 </div>
             </form>
         </div>
